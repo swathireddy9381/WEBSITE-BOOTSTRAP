@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>protofolio2</title>
+        
+    <script>
+          // Defining a function to display error message
+          function printError(elemId, hintMsg) {
+              document.getElementById(elemId).innerHTML = hintMsg;
+          }
+          
+          
+          // Defining a function to validate form 
+          function validateForm() {
+          
+              // Retrieving the values of form elements 
+             
+              //step 1:
+              var name = document.getElementById("name").value;
+              var email = document.getElementById("email").value;
+              var mobile = document.getElementById("mobile").value;
+              var gender = document.getElementById("gender").value;
+          
+              // step2
+            // Defining error variables with a default value
+              var nameErr = emailErr = mobileErr = genderErr = true;
+              
+              //a.
+              // Validate name
+              if(name == "") {
+                  printError("nameErr", "Please enter your name");
+              } else {
+                  var regex = /^[a-zA-Z\s]+$/;                
+                  if(regex.test(name) === false) {
+                      printError("nameErr", "Please enter a valid name");
+                  } else {
+                      printError("nameErr", "");
+                      nameErr = false;
+                  }
+              }
+              
+              //b.
+              // Validate email address
+              if(email == "") {
+                  printError("emailErr", "Please enter your email address");
+              } else {
+                  // Regular expression for basic email validation
+                  var regex = /^\S+@\S+\.\S+$/;
+                  if(regex.test(email) === false) {
+                      printError("emailErr", "Please enter a valid email address");
+                  } else{
+                      printError("emailErr", "");
+                      emailErr = false;
+                  }
+              }
+              
+              // Validate mobile number
+              if(mobile == "") {
+                  printError("mobileErr", "Please enter your mobile number");
+              } else {
+                  var regex = /^[1-9]\d{9}$/;
+                  if(regex.test(mobile) === false) {
+                      printError("mobileErr", "Please enter a valid 10 digit mobile number");
+                  } else{
+                      printError("mobileErr", "");
+                      mobileErr = false;
+                  }
+              }
+              
+              // Validate gender
+              if(gender == "") {
+                  printError("genderErr", "Please select your gender");
+              } else {
+                  printError("genderErr", "");
+                  genderErr = false;
+              }
+              
+              // Prevent the form from being submitted if there are any errors
+              if((nameErr || emailErr || mobileErr || genderErr) == true) {
+                 return false;
+              } 
+              else {
+                  // Creating a string from input data for preview
+                  var dataPreview = "You've entered the following details: \n" +
+                                    "Full Name: " + name + "\n" +
+                                    "Email Address: " + email + "\n" +
+                                    "Mobile Number: " + mobile + "\n" +
+                                    "Gender: " + gender + "\n";
+  
+                  // Display input data in a dialog box before submitting the form
+                  alert(dataPreview);
+              }
+          };
+    </script>
+    
+    <style>
+          h1{
+            font-size: 10ch;
+            text-align: center;
+            color:white;
+          }
+          p{
+            font-size: 3ch;
+            text-align: center;
+            word-spacing: normal;
+          }
+          .button{
+            font-size: larger;
+            size: 5cap;
+            align-items: center;
+          }
+          .about{
+            font-size: 1cqi;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: darkgray;
+          }
+          .content{
+            background-image: url(https://images.rawpixel.com/image_800/cHJpdmF0ZS9zdGF0aWMvaW1hZ2VzL3dlYnNpdGUvMjAyMi0wNS9ybTIxOGJhdGNoOS1hdW0tMDFfMS5qcGc.jpg?s=xcvOXndTeX2RacE9265q3VUi-KP4ie40ZijoTFVyWj8);
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+          .footer{
+            text-align: left;
+            font-size: 2cap;
+            background-color: coral;
+          }
+          h6{
+            text-align: left;
+            color: cornsilk;
+            font-size: 1cap;
+          }
+          .contact{
+            text-align: center;
+            background-color: rgb(254, 147, 108);
+            font-size: cap;
+          }
+          h4{
+            text-align: left;
+            font-size: 3cap;
+            background-color: rgb(190, 62, 62);
+          }
+          h3{
+            text-align: center;
+            font-size: 4ch;
+          }
+          h2{
+            text-align: left;
+            background-color: burlywood;
+          }
+          .card{
+            width: 24rem;
+          }
+          .img{
+            width:400px;
+             height:300px;
+          }
+    </style>
+  </head>
+
+  <body>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Website</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">about</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#services">services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#reviews">reviews</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        </nav>
+      </nav>
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://imgcld.yatra.com/ytimages/image/upload/t_ann_seo_banner_tab/v1530015312/AdvNation/ANN_TRP156/adventure-trips-in-india_1440486703_aNbqdJ.jpg" class="d-block w-100" alt="first" width="300px" height="700px">
+            <div class="carousel-caption d-none d-md-block">
+              <button type="button" class="btn btn-warning">Travel Now</button>
+              <h1>Adventure With Us</h1>
+              <p>A Journey of Thousand Miles Begins With a Single Step </p>
+          </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://www.myglobalviewpoint.com/wp-content/uploads/2022/05/Best-Adventure-Quotes-Featured-Image.jpg" class="d-block w-100" alt="next" width="300px" height="700px">
+            <div class="carousel-caption d-none d-md-block">
+            <h1>Travel</h1>
+            <p>Wherever you go,go with all Heart</p>
+          </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://s3.us-east-1.amazonaws.com/images.gearjunkie.com/uploads/2023/02/ADVMotorcycles-4-scaled.jpg" class="d-block w-100" alt="next" width="300px" height="700px">
+            <div class="carousel-caption d-none d-md-block">
+            <h1>Live</h1>
+            <p>To Travel is to Live</p>
+          </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      </div>
+      <br>
+      <br>
+      <!--about starts here-->
+         <div class="about">
+          <h2 id="about">About</h2>
+          <p>“Adventure” may look something as simple as camping outside in a tent, or walking through the wild area for an hour.For another, this would be considered exercise or passive tourism.
+            In today’s digital age, adventure enthusiasts and travel aficionados have a wealth of resources at their fingertips to plan unforgettable journeys.
+            The internet is teeming with adventure websites, travel blogs, and tour guide platforms that cater to those seeking adrenaline-pumping adventures, immersive exploration, and awe-inspiring travel experiences.
+            Virgin Experiences is all about taking adventure to the next level on Earth. Offering a wide range of thrilling activities, from supercar driving to skydiving, their website allows you to book unforgettable experiences.
+            TripAdvisor is a travel review and booking platform that aggregates reviews and ratings from millions of travelers. It’s an essential tool for planning adventures, from finding the best hotels to discovering hidden gems.
+            WeRoad organizes group trips for solo travelers, emphasizing community and cultural immersion. Their website showcases a range of unique adventures, from African safaris to Southeast Asian explorations.
+            Adventure.com is more than just a website; its a gateway to the worlds most thrilling experiences. This online platform is a treasure trove for adventure enthusiasts, offering a rich tapestry of stories, guides, and insights from globetrotters and explorers.
+            Adventure.com doesnt just inspire wanderlust; it fuels it. It serves as a reminder that adventure can be found around every corner, whether it’s a remote trek in the Himalayas or a cultural immersion in a bustling metropolis.
+            With its immersive content and commitment to authentic exploration, Adventure.com invites us to embrace the unknown, seek out the extraordinary, and embark on adventures that define our lives.
+          </p>
+         </div>
+         <!--about ends-->
+         <div class="services" id="services">
+          <h3>Things to Experience</h3>
+          <!-- Carousel wrapper -->
+          <div
+          id="carouselMultiItemExample"
+          class="carousel slide carousel-dark text-center"
+          data-mdb-ride="carousel"
+                >
+        <!-- Controls -->
+          <div class="d-flex justify-content-center mb-4">
+            <button
+            class="carousel-control-prev position-relative"
+            type="button"
+            data-mdb-target="#carouselMultiItemExample"
+            data-mdb-slide="prev"
+            >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+            class="carousel-control-next position-relative"
+            type="button"
+            data-mdb-target="#carouselMultiItemExample"
+            data-mdb-slide="next"
+                      >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
+              </div>
+                <!-- Inner -->
+                <div class="carousel-inner py-4">
+                <!-- Single item -->
+                  <div class="carousel-item active">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <div class="card">
+                            <img src="https://thewildcone.com/wp-content/uploads/2022/06/paragliding-in-himachal.jpg" class="card-img-top" alt="Waterfall"/>
+            <div class="card-body">
+              <h5 class="card-title">Paragliding</h5>
+                <p class="card-text">
+                paragliding is the recreational adventure sport which is lightweight,free-flying.
+                Feel an amazing adrenaline rush,it gives you a boost of self-confidence.
+                </p>
+                <a href="#!" class="btn btn-primary">Book now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 d-none d-lg-block">
+          <div class="card">
+            <img
+              src="https://www.trustedmalaysia.com/wp-content/uploads/2023/01/Do-not-hike-alone.-1024x683.jpg"
+              class="card-img-top"
+              alt="Sunset Over the Sea"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Hiking</h5>
+              <p class="card-text">
+                hiking is a long,vigorous walk,footpaths in the countryside.
+                 good form of exercise,walking through nature.
+              </p>
+              <a href="#!" class="btn btn-primary">Book now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 d-none d-lg-block">
+          <div class="card">
+            <img
+              src="https://midwestexplored.com/wp-content/uploads/2022/04/people-standing-around-a-campfire-camping-in-the-up.jpg"
+              class="card-img-top"
+              alt="Sunset over the Sea"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Camping</h5>
+              <p class="card-text">
+                you get a chance to get in touch with nature.helps in stress reduction ,fresh air,connections.
+                better sleep quality when camping.
+              </p>
+              <a href="#!" class="btn btn-primary">Booknow</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 d-none d-lg-block">
+          <div class="card">
+            <img
+              src="https://nt.global.ssl.fastly.net/binaries/content/gallery/website/national/regions/norfolk/places/blickling-estate/library/autumn/visitors-cycling-blickling-estate-norfolk1366742.jpg"
+              class="card-img-top"
+              alt="Sunset over the Sea"
+            />
+        <div class="card-body">
+          <h5 class="card-title">cycling</h5>
+          <p class="card-text">
+            Riding a bike is healthy,fun and low impact.Connection with nature,enjoying the views.Improves self motivation.
+          </p>
+          <a href="#!" class="btn btn-primary">Book now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 d-none d-lg-block">
+      <div class="card">
+        <img
+          src="https://img.traveltriangle.com/blog/wp-content/uploads/2018/03/rishikesh-shutterstock.jpg"
+          class="card-img-top"
+          alt="Sunset over the Sea"
+        />
+    <div class="card-body">
+      <h5 class="card-title">rafting</h5>
+      <p class="card-text">
+        Traveling on a river,entertainment activity use a unsinkable raft.we can enjoy it summer.Traveling through river vibes.
+      </p>
+      <a href="#!" class="btn btn-primary">Book now</a>
+    </div>
+  </div>
+    </div>
+    <div class="col-lg-4 d-none d-lg-block">
+      <div class="card">
+        <img
+          src="https://www.brightadventurecompany.com.au/wp-content/uploads/2018/10/BRD1A_8565.jpg"
+          class="card-img-top"
+          alt="Sunset over the Sea"
+        />
+    <div class="card-body">
+      <h5 class="card-title">abseiling</h5>
+      <p class="card-text">
+        Rock climbing is an adventure sports which helps in stress relief.point one can try a new route.
+      </p>
+      <a href="#!" class="btn btn-primary">Book now</a>
+    </div>
+  </div>
+    </div>
+      </div>
+  </div>
+  <div class="content">
+    <h4>Places to Travel</h4>
+    <h5>kerela</h5>
+    <img src="https://images.hindustantimes.com/img/2023/01/13/1600x900/abhishek-prasad-N3VzleBhOvk-unsplash_1628499374705_1673610928636_1673610928636.jpg" width="400px" height="300px"alt="">
+    <h5>Ladakh</h5>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfncMW7CEYQ2xVMoETYkDwPnQrHZRK8x9URw&usqp=CAU" width="400px" height="300px"alt="">
+    <h5>Spiti valley</h5>
+    <img src="https://media.cntraveller.in/wp-content/uploads/2017/01/spiti-lead-image-1366x768.jpg" width="400px" height="300px"alt="">
+    <h5>Gulmarg</h5>
+    <img src="https://www.holidify.com/images/bgImages/GULMARG.jpg"alt="">
+    <h5>kasol</h5>
+    <img src="https://www.euttaranchal.com/tourism/photos/kasol-5771621.jpg"alt="">
+  </div> 
+  <section>
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10 col-xl-8 text-center" id="reviews">
+        <h3 class="mb-4">Reviews</h3>
+        <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+          Our guide was very knowledgeable about the different venues we went to on the Golden circle trip.
+           We were given plenty of time to explore on our own each site. Inga made sure everyone was happy and
+            comfortable during the coach journey kept us fully informed about where we were going and what we would see. 
+        </p>
+      </div>
+    </div>
+  <!--review starts here-->
+    <div class="row text-center d-flex align-items-stretch">
+      <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch">
+        <div class="card testimonial-card">
+          <div class="card-up" style="background-color: #80377c;"></div>
+          <div class="avatar mx-auto bg-white">
+            <img src="https://imgix.ranker.com/user_node_img/3828/76559357/original/76559357-photo-u-694518662?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&w=375"alt="" width="150px" height="150px"
+              class="rounded-circle img-fluid" />
+          </div>
+          <div class="card-body">
+            <h3 class="mb-4">lee jhon</h3>
+            <hr />
+            <p class="dark-grey-text mt-4">
+              <i class="fas fa-quote-left pe-2"></i>A marvelous trip overall. The guides were great, 
+              all 4 of them, and the attention to detail was so appreciated. 
+              Locations and trails pushed us and at the same time beautiful.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch">
+        <div class="card testimonial-card">
+          <div class="card-up" style="background-color: #7a81a8;"></div>
+          <div class="avatar mx-auto bg-white">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj3MLAzdJ4ajrsFX_Mltj-6MhQpFoWRGGY2fsbLUyTr3PJK0pqXrFV2JsHQNSy1usvo-c&usqp=CAU" alt=""width="150px" height="100px"
+              class="rounded-circle img-fluid" />
+          </div>
+          <div class="card-body">
+            <h3 class="mb-4">jichang wook</h3>
+            <hr />
+            <p class="dark-grey-text mt-4">
+              <i class="fas fa-quote-left pe-2"></i>The whole trip was wonderful.
+               A great balance on-the-go all the time to enjoying downtime to relax and
+                reflect. I would highly recommend Adventure Life.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-0 d-flex align-items-stretch">
+        <div class="card testimonial-card">
+          <div class="card-up" style="background-color: #6d5b98;"></div>
+          <div class="avatar mx-auto bg-white">
+            <img src="https://i.mydramalist.com/X5ABJ_5c.jpg"alt="" width="150px" height="100px"
+              class="rounded-circle img-fluid" />
+          </div>
+          <div class="card-body">
+            <h3 class="mb-4">minho</h3>
+            <hr />
+            <p class="dark-grey-text mt-4">
+              <i class="fas fa-quote-left pe-2"></i>We had an incredible trip: Beautiful landscape, 
+              tough-but-not-too-challenging 
+              trails, and a really friendly, 
+              informative and serviceminded guide.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
+  <div>
+    <br>
+    <br>
+    <!--reviews ends here-->
+
+          <!--contact starts here-->
+          <div class="contact" id="contact">
+            <h4>contact on</h4>
+            <p>Sign up to do exciting things....... </p>
+            
+            <!--form starts with validation.-->
+            <form name="contactForm" onsubmit="return validateForm()" action="" method="post">
+            <table align="center">
+            <tr>
+              <td><label>Full Name</label></td>
+              
+              <td>
+                <input type="text" id="name" />
+              </td>
+
+              <td class="error" id="nameErr"></td>
+            </tr>
+
+          <br>
+
+          <tr>
+            <td><label>Email Address</label></td>
+            
+            <td>
+              <input type="text" id="email" />
+            </td>
+
+            <td class="error" id="emailErr"></td>
+          </tr>
+
+          <br>
+
+          <tr>
+            <td><label>Mobile Number</label></td>
+            
+            <td>
+              <input type="text" maxlength="10" id="mobile" />
+            </td>
+
+            <td class="error" id="mobileErr"></td>
+          </tr>
+
+          <br>
+
+          <tr>
+            <td><label>Gender</label></td>
+            
+            <td class="form-inline">
+              <label><input type="radio" name="gender" value="male" id="gender"> Male</label>
+              <label><input type="radio" name="gender" value="female" id="gender"> Female</label>
+            </td>
+
+            <td class="error" id="genderErr"></td>
+          </tr>
+
+          <br>
+
+          <tr>
+            <td><input type="submit" value="Submit" style=""></td>
+          </tr>
+        </table>
+      </form>
+
+      <div class="footer">
+        <h6>Follow us on</h6>
+        <i class="fa fa-facebook"><a class="icon-link" href="https://www.facebook.com/"></a></i>
+        <i class="fa fa-whatsapp"><a  class="icon-link" href="https://www.whatsapp.com/"></a></i>
+        <i class="fa fa-instagram"><a  class="icon-link" href="https://www.instagram.com"></a></i>
+        <i class="fa fa-twitter"><a class="icon-link" href="https://www.twitter.com"></a></i>
+      </div>
+    </div>
+  </div>  
+  <!--contact end here-->
+  </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
+</html>
+    
